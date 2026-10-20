@@ -105,6 +105,17 @@ li::marker {
     cursor: pointer;
   }
 }
+.record {
+  width: 560px;
+}
+.recuser {
+  margin-left: 20px;
+  margin-right: 60px;
+  display: inline-block;
+}
+.recperc {
+  display: inline-block;
+}
 .selected {
   background-color: #424242;
 }
