@@ -86,7 +86,7 @@ async function leveldetails(inputlevel) {
     recdiv.appendChild(user);
     recdiv.appendChild(perc);
   }
-  if inputlevel["records"].length > 0 {
+  if (inputlevel["records"].length > 0) {
     recsdiv.appendChild(recdiv);
   }
   recordsdiv.appendChild(recsdiv);
