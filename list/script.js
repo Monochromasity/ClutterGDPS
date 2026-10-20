@@ -78,21 +78,22 @@ async function leveldetails(inputlevel) {
     recordsdiv.appendChild(video);
   }
   // Records
-  /*
-  if (inputlevel["records"].length > 0) {
-    const recsdiv = document.createElement("div");
-    for (i = 0; i < inputlevel["records"].length; i++) {
-      const user = document.createTextNode(inputlevel["records"].keys()[i]);
-      const perc = document.createTextNode(inputlevel["records"][user]);
-      const recdiv = document.createElement("div");
-      recdiv.appendChild(user);
-      recdiv.appendChild(perc);
-    }
+  const recsdiv = document.createElement("div");
+  for (i = 0; i < inputlevel["records"].keys().length; i++) {
+    const user = document.createTextNode(inputlevel["records"].keys()[i]);
+    const perc = document.createTextNode(inputlevel["records"][user]);
+    const recdiv = document.createElement("div");
+    recdiv.appendChild(user);
+    recdiv.appendChild(perc);
+  }
+  if (inputlevel["records"].keys().length > 0) {
     recsdiv.appendChild(recdiv);
   }
-  
   recordsdiv.appendChild(recsdiv);
-  */
+  
+  lowerdiv.appendChild(detailsdiv);
+  lowerdiv.appendChild(recordsdiv);
+  leveldiv.appendChild(lowerdiv);
   
   lowerdiv.appendChild(detailsdiv);
   lowerdiv.appendChild(recordsdiv);
