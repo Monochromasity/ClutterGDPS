@@ -81,7 +81,7 @@ async function leveldetails(inputlevel) {
   const recsdiv = document.createElement("div");
   for (i = 0; i < Object.keys(inputlevel["records"]).length; i++) {
     const user = document.createTextNode(Object.keys(inputlevel["records"])[i]);
-    const perc = document.createTextNode(inputlevel["records"][user]);
+    const perc = document.createTextNode(inputlevel["records"][Object.keys(inputlevel["records"])[i]]);
     const recdiv = document.createElement("div");
     recdiv.appendChild(user);
     recdiv.appendChild(perc);
