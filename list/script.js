@@ -77,10 +77,6 @@ async function leveldetails(inputlevel) {
     video.className = "video";
     recordsdiv.appendChild(video);
   }
-  lowerdiv.appendChild(detailsdiv);
-  lowerdiv.appendChild(recordsdiv);
-  leveldiv.appendChild(lowerdiv);
-
   // Records
   const recsdiv = document.createElement("div");
   for (i = 0; i < inputlevel["records"].length; i++) {
@@ -92,6 +88,10 @@ async function leveldetails(inputlevel) {
   }
   recsdiv.appendChild(recdiv);
   recordsdiv.appendChild(recsdiv);
+  
+  lowerdiv.appendChild(detailsdiv);
+  lowerdiv.appendChild(recordsdiv);
+  leveldiv.appendChild(lowerdiv);
 }
 
 async function printlist() {
