@@ -142,8 +142,7 @@ async function printlist() {
 
 function updateLevels() {
   const allLevels = document.querySelectorAll("#list > div")
-  const emptyText = document.getElementById("empty")
-  emptyText.style.display = "block"
+  let display = "block"
 
   for (const level of allLevels) {
     let name
@@ -156,11 +155,12 @@ function updateLevels() {
 
     if (name.toLowerCase().includes(inputContent)) {
       level.style.display = "block"
-      emptyText.style.display = "none"
+      display = "none"
     } else {
       level.style.display = "none"
     }
   }
+  document.getElementById("empty").style.display = display
 }
 
 let inputContent = ""

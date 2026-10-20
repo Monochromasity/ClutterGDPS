@@ -12,11 +12,24 @@ a.hlink {
   color: white;
   transition: all 0.4s;
   margin: 10px;
+
+  &:hover {
+    background-color: #333333;
+    font-size: 36px;
+    margin: 7px;
+  }
 }
-a.hlink:hover {
-  background-color: #333333;
-  font-size: 36px;
-  margin: 7px;
+a.inline-link {
+  color: white;
+  transition-duration: 0.2s;
+
+  &:hover {filter: brightness(0.7);}
+  /* This adds a little arrow after every link that opens in a new tab. */
+  &[target="_blank"]::after {
+    content: "\00a0\2197";
+    display: inline-block;
+    font-size: 0.8rem;
+  }
 }
 .header {
   border-bottom: 2px solid #424242;
@@ -50,6 +63,12 @@ a.hlink:hover {
 /* Hide scrollbar for Chrome, Safari and Opera */
 #list::-webkit-scrollbar {
   display: none;
+}
+li::marker {
+  font-weight: bold;
+}
+.bigger-font {
+  font-size: 1.2rem;
 }
 #empty {
   color: #666;
