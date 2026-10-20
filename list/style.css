@@ -106,7 +106,6 @@ li::marker {
   }
 }
 .record {
-  width: 560px;
   margin: 20px;
   border: hidden;
   border-radius: 8px;

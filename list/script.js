@@ -79,16 +79,18 @@ async function leveldetails(inputlevel) {
   }
   // Records
   const recsdiv = document.createElement("div");
+  const records = inputlevel["records"]
   recsdiv.className = "list";
-  if (Object.keys(inputlevel["records"]).length > 0) {
-    for (j = 0; j < Object.keys(inputlevel["records"]).length; j++) {
+  if (Object.keys(records).length > 0) {
+    for (const key in records) {
       const userdiv = document.createElement("div");
       const percdiv = document.createElement("div");
       userdiv.className = "recuser";
       percdiv.className = "recperc";
-      const user = document.createTextNode(Object.keys(inputlevel["records"])[j]);
-      const perc = document.createTextNode(inputlevel["records"][Object.keys(inputlevel["records"])[j]][0]);
+      const user = document.createTextNode(key);
+      const perc = document.createTextNode(records[key][0]);
       const recdiv = document.createElement("div");
+
       userdiv.appendChild(user);
       percdiv.appendChild(perc);
       recdiv.appendChild(userdiv);
