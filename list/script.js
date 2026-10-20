@@ -81,7 +81,7 @@ async function leveldetails(inputlevel) {
   const recsdiv = document.createElement("div");
   recsdiv.className = "list";
   if (Object.keys(inputlevel["records"]).length > 0) {
-    for (i = 0; i < Object.keys(inputlevel["records"]).length; i++) {
+    for (j = 0; j < Object.keys(inputlevel["records"]).length; j++) {
       const userdiv = document.createElement("div");
       const percdiv = document.createElement("div");
       userdiv.className = "recuser";
