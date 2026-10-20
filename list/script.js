@@ -91,6 +91,7 @@ async function leveldetails(inputlevel) {
     recdiv.appendChild(perc);
   }
   recsdiv.appendChild(recdiv);
+  recordsdiv.appendChild(recsdiv);
 }
 
 async function printlist() {
