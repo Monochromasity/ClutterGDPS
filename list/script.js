@@ -80,6 +80,17 @@ async function leveldetails(inputlevel) {
   lowerdiv.appendChild(detailsdiv);
   lowerdiv.appendChild(recordsdiv);
   leveldiv.appendChild(lowerdiv);
+
+  // Records
+  const recsdiv = document.createElement("div");
+  for (i = 0; i < inputlevel["records"].length; i++) {
+    const user = document.createTextNode(inputlevel["records"].keys()[i]);
+    const perc = document.createTextNode(inputlevel["records"][user]);
+    const recdiv = document.createElement("div");
+    recdiv.appendChild(user);
+    recdiv.appendChild(perc);
+  }
+  recsdiv.appendChild(recdiv);
 }
 
 async function printlist() {
