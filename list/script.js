@@ -92,10 +92,6 @@ async function leveldetails(inputlevel) {
   lowerdiv.appendChild(detailsdiv);
   lowerdiv.appendChild(recordsdiv);
   leveldiv.appendChild(lowerdiv);
-  
-  lowerdiv.appendChild(detailsdiv);
-  lowerdiv.appendChild(recordsdiv);
-  leveldiv.appendChild(lowerdiv);
 }
 
 async function printlist() {
