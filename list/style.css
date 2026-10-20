@@ -107,6 +107,7 @@ li::marker {
 }
 .record {
   width: 560px;
+  margin: 20px;
 }
 .recuser {
   margin-left: 20px;
