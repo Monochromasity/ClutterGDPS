@@ -105,6 +105,9 @@ li::marker {
     cursor: pointer;
   }
 }
+.record {
+  width: 560px;
+}
 .selected {
   background-color: #424242;
 }
