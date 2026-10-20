@@ -87,7 +87,7 @@ async function leveldetails(inputlevel) {
       userdiv.className = "recuser";
       percdiv.className = "recperc";
       const user = document.createTextNode(Object.keys(inputlevel["records"])[i]);
-      const perc = document.createTextNode(inputlevel["records"][Object.keys(inputlevel["records"])[i]]);
+      const perc = document.createTextNode(inputlevel["records"][Object.keys(inputlevel["records"])[i]][0]);
       const recdiv = document.createElement("div");
       userdiv.appendChild(user);
       percdiv.appendChild(perc);
