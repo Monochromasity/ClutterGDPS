@@ -85,8 +85,6 @@ async function leveldetails(inputlevel) {
     const recdiv = document.createElement("div");
     recdiv.appendChild(user);
     recdiv.appendChild(perc);
-  }
-  if (Object.keys(inputlevel["records"]).length > 0) {
     recsdiv.appendChild(recdiv);
   }
   recordsdiv.appendChild(recsdiv);
