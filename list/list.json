@@ -8,8 +8,8 @@
     "video": "0ET_fARhNeQ",
     "description": "The current ClutterGDPS top 1, with Time Machine as its song. Heavily ball carried and first-half heavy.",
     "records": {
-      "username": "percentage",
-      "username2": "percentage2"
+      "username": ["percentage", "0ET_fARhNeQ"],
+      "username2": ["percentage2", "0ET_fARhNeQ"]
     }
   },
   {
