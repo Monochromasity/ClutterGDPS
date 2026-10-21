@@ -8,8 +8,8 @@
     "video": "0ET_fARhNeQ",
     "description": "The current ClutterGDPS top 1, with Time Machine as its song. Heavily ball carried and first-half heavy.",
     "records": {
-      "username": ["percentage", "0ET_fARhNeQ"],
-      "username2": ["percentage2", "0ET_fARhNeQ"]
+      "OriginPlayz233": [100, null, "verifier"],
+      "username2": ["percentage2", "0ET_fARhNeQ", "yt"]
     }
   },
   {
@@ -20,7 +20,9 @@
     "verifier": "0x0",
     "video": "TgGmCh7gQb4",
     "description": "Ship and memory based level using Time Machine as its song. Named like that to annoy Jyxa.",
-    "records": {}
+    "records": {
+      "0x0": [100, null, "verifier"]
+    }
   },
   {
     "level": "Clutterfunk",

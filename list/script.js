@@ -13,8 +13,7 @@ async function leveldetails(inputlevel) {
 
   // Level name in level div
   const levelname = document.createElement("div");
-  const levelnametxt = document.createTextNode(inputlevel["level"]);
-  levelname.appendChild(levelnametxt);
+  levelname.textContent = inputlevel["level"]
   levelname.className = "levelname";
   leveldiv.appendChild(levelname);
 
@@ -32,32 +31,16 @@ async function leveldetails(inputlevel) {
 
   // Level creators, publisher, and verifier
   const cpv = document.createElement("div");
-  const creators = document.createElement("b");
-  const creatorstxt = document.createTextNode(inputlevel["creators"]);
-  creators.appendChild(creatorstxt);
-  const publisher = document.createElement("b");
-  const publishertxt = document.createTextNode(inputlevel["publisher"]);
-  publisher.appendChild(publishertxt);
-  const verifier = document.createElement("b");
-  const verifiertxt = document.createTextNode(inputlevel["verifier"]);
-  verifier.appendChild(verifiertxt);
-  const creatorlabel = document.createTextNode("Created by ");
-  const publisherlabel = document.createTextNode(", published by ");
-  const verifierlabel = document.createTextNode(", verified by ");
-
-  cpv.appendChild(creatorlabel);
-  cpv.appendChild(creators);
-  cpv.appendChild(publisherlabel);
-  cpv.appendChild(publisher);
-  cpv.appendChild(verifierlabel);
-  cpv.appendChild(verifier);
+  cpv.innerHTML = `
+Created by <b>${inputlevel["creators"]}</b>,
+published by <b>${inputlevel["publisher"]}</b>,
+verified by <b>${inputlevel["verifier"]}</b>`
   cpv.className = "cpvlabel";
   detailsdiv.appendChild(cpv);
 
   // Level description
   const desc = document.createElement("div");
-  const desctxt = document.createTextNode(inputlevel["description"] ?? "No description was provided for this level yet.");
-  desc.appendChild(desctxt);
+  desc.textContent = inputlevel["description"] ?? "No description was provided for this level yet."
   desc.className = "desc";
   detailsdiv.appendChild(desc);
 
@@ -72,34 +55,91 @@ async function leveldetails(inputlevel) {
     recordsdiv.appendChild(video);
   } else {
     const video = document.createElement("div");
-    const videotxt = document.createTextNode("No video was found for this level.");
-    video.appendChild(videotxt);
+    video.textContent = "No video was found for this level."
     video.className = "video";
     recordsdiv.appendChild(video);
   }
   // Records
+  const recsparent = document.createElement("div")
   const recsdiv = document.createElement("div");
   const records = inputlevel["records"]
   recsdiv.className = "list";
+  recsdiv.id = "records-list"
+  const recsheader = document.createElement("h2")
+  recsheader.innerHTML = "<u>Records</u>"
+  recsheader.style.textAlign = "center"
+  recsheader.style.marginBottom = "5px"
+  recsparent.appendChild(recsheader)
+
   if (Object.keys(records).length > 0) {
     for (const key in records) {
       const userdiv = document.createElement("div");
       const percdiv = document.createElement("div");
       userdiv.className = "recuser";
+      userdiv.textContent = key
       percdiv.className = "recperc";
-      const user = document.createTextNode(key);
-      const perc = document.createTextNode(records[key][0]);
+      percdiv.textContent = records[key][0] + "%"
+
+      let vid = document.createElement("a")
+      const link = records[key][1]
+      vid.className = "inline-link"
+      let href
+      // Jyxa, this isn't vibecoded, it's called documentation
+      switch (records[key][2]) {
+        case "yt": // YouTube
+          // Example: "0ET_fARhNeQ"
+          href = "https://youtube.com/watch?v=" + link
+          break
+
+        case "catbox": // Catbox
+          // Example: "d6i9mv.mp4"
+          href = "https://files.catbox.moe/" + link
+          break
+
+        case "vimeo": // Vimeo
+          // Example: "722256136"
+          href = "https://vimeo.com/" + link
+          break
+
+        case "medal": // Medal.tv
+          // Example: ["bluestacks", "nKHHEgcVxJsgW58OC"]
+          href = "https://medal.tv/games/" + link[0] + "/clips/" + link[1]
+          break
+
+        case "url":
+        default: // Raw url
+          // Example: "https://goob.club"
+          href = link
+          break
+        
+        case "verifier":
+          // Record belongs to the verifier of the level.
+          vid = document.createElement("i")
+          vid.className = "sad"
+          vid.textContent = "Verifier"
+          vid.style.textAlign = "left"
+          break
+      }
+      if (records[key][2] !== "verifier") {
+          vid.href = href
+          vid.target = "_blank"
+          vid.textContent = "Watch"
+      }
+
       const recdiv = document.createElement("div");
 
-      userdiv.appendChild(user);
-      percdiv.appendChild(perc);
       recdiv.appendChild(userdiv);
       recdiv.appendChild(percdiv);
+      recdiv.appendChild(vid)
       recdiv.className = "item record";
       recsdiv.appendChild(recdiv);
     }
+  } else {
+    recsdiv.innerHTML += `<i class="sad">No records yet...</i>`
+    recsdiv.style.textAlign = "center"
   }
-  recordsdiv.appendChild(recsdiv);
+  recordsdiv.appendChild(recsparent);
+  recsparent.appendChild(recsdiv)
   
   lowerdiv.appendChild(detailsdiv);
   lowerdiv.appendChild(recordsdiv);
@@ -144,15 +184,13 @@ async function printlist() {
   
     // Level rank
     const rank = document.createElement("div");
-    const ranktxt = document.createTextNode("#".concat(i+1));
-    rank.appendChild(ranktxt);
+    rank.textContent = "#".concat(i+1)
     rank.className = "rank";
     item.appendChild(rank);
 
     // Level name
     const name = document.createElement("div");
-    const nametxt = document.createTextNode(list[i]["level"]);
-    name.appendChild(nametxt);
+    name.textContent = list[i]["level"]
     name.className = "name";
     item.appendChild(name);
     htmllist.appendChild(item);
@@ -177,7 +215,7 @@ function updateLevels() {
       }
     }
 
-    if (name.toLowerCase().includes(inputContent)) {
+    if (name.toLowerCase().includes(inputContent.toLowerCase())) {
       level.style.display = "block"
       display = "none"
     } else {
