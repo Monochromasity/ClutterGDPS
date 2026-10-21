@@ -7,7 +7,7 @@ async function fetchlist() {
     console.error(error);
   }
 }
-async function leveldetails(inputlevel) {
+async function leveldetails(inputlevel, fulllist) {
   // Get level div
   const leveldiv = document.getElementById("level");
 
@@ -43,6 +43,63 @@ verified by <b>${inputlevel["verifier"]}</b>`
   desc.textContent = inputlevel["description"] ?? "No description was provided for this level yet."
   desc.className = "desc";
   detailsdiv.appendChild(desc);
+
+  // Level info
+  const info = document.createElement("div");
+  info.className = "info";
+  const info2 = document.createElement("div");
+  info2.className = "info2";
+
+  const iddiv = document.createElement("div");
+  const idtitle = document.createElement("h2");
+  idtitle.textContent = "LEVEL ID";
+  const idtxt = document.createElement("p");
+  idtxt.textContent = document.querySelector(".selected").id;
+  iddiv.appendChild(idtitle);
+  iddiv.appendChild(idtxt);
+
+  const lengthdiv = document.createElement("div");
+  const lentitle = document.createElement("h2");
+  lentitle.textContent = "LENGTH";
+  const lentxt = document.createElement("p");
+  lentxt.innerHTML += inputlevel["length"] ?? `<i class="sad">No length has been provided...</i>`;
+  lengthdiv.appendChild(lentitle);
+  lengthdiv.appendChild(lentxt);
+
+  const diffdiv = document.createElement("div");
+  const difftitle = document.createElement("h2");
+  difftitle.textContent = "DIFFICULTY";
+  const difftxt = document.createElement("p");
+  difftxt.innerHTML += inputlevel["diff"] ?? `<i class="sad">No difficulty has been provided...</i>`
+  diffdiv.appendChild(difftitle);
+  diffdiv.appendChild(difftxt);
+
+  const listperdiv = document.createElement("div");
+  const listpertitle = document.createElement("h2");
+  listpertitle.textContent = "LIST%";
+  const listpertxt = document.createElement("p");
+  listpertxt.innerHTML += inputlevel["listperc"] ?? `<i class="sad">No list% has been provided...</i>`;
+  if (inputlevel["listperc"] != null) {
+    listpertxt.innerHTML += "%"
+  }
+  listperdiv.appendChild(listpertitle);
+  listperdiv.appendChild(listpertxt);
+
+  const pointsdiv = document.createElement("div");
+  const pointstitle = document.createElement("h2");
+  pointstitle.textContent = "POINTS";
+  const pointstxt = document.createElement("p");
+  pointstxt.textContent = Math.round((Math.pow((((-7*Math.sqrt(499))/(fulllist.length-1))*((fulllist.indexOf(inputlevel)+1)-fulllist.length))/7, 2) + 1)*100)/100;
+  pointsdiv.appendChild(pointstitle);
+  pointsdiv.appendChild(pointstxt);
+
+  info.appendChild(iddiv);
+  info.appendChild(lengthdiv);
+  info.appendChild(diffdiv);
+  info2.appendChild(listperdiv);
+  info2.appendChild(pointsdiv);
+  detailsdiv.appendChild(info);
+  detailsdiv.appendChild(info2);
 
   // Video iframe
   // <iframe width="560" height="315" src="https://www.youtube.com/embed/MM7zFyFqD8A?si=JmUGHUIf9_PccYe0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -197,7 +254,7 @@ async function printlist() {
 
     // If this level is selected
     if (item.className == "item selected") {
-      await leveldetails(list[i]);
+      await leveldetails(list[i], list);
     }
   }
 }
