@@ -24,7 +24,8 @@
     "video": "TgGmCh7gQb4",
     "description": "Ship and memory based level using Time Machine as its song. Named like that to annoy Jyxa.",
     "records": {
-      "0x0": [100, null, "verifier"]
+      "0x0": [100, null, "verifier"],
+      "toast x3": [100, ["bluestacks", "nMkw12Jc8tMCt75oK"], "medal"],
     },
     "length": null,
     "diff": "Hard Demon",
