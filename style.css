@@ -1,0 +1,94 @@
+/* Homepage Styles :P */
+@import url("https://api.fonts.coollabs.io/css2?family=Kaushan+Script&display=swap");
+
+:root {
+    /* Variables yay */
+    --grey-darkest:     #1a1a1a;
+    --grey-dark:        #222;
+    --grey-med-dark:    #292929;
+    --grey-med-light:   #333;
+    --grey-light:       #424242;
+    --grey-lightest:    #666;
+}
+
+body {
+    background-color: var(--grey-med-dark);
+    margin-bottom: 0
+}
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/space.png");
+    opacity: 0.3;
+    z-index: -1;
+}
+body, button, select, a {
+    color: white;
+    font-family: "Raleway", sans-serif;
+}
+a:hover:not(:has(button)) {
+    filter: brightness(0.7);
+}
+button {
+    background-color: var(--grey-light);
+    border: 3px solid var(--grey-lightest);
+    border-radius: 15px;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+
+    &:hover {
+        background-color: var(--grey-lightest);
+        filter: brightness(1.2)
+    }
+}
+
+.centred {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+/* ive just reinvented tailwind havent i */
+.flex {
+    display: flex;
+
+    &.col {flex-direction: column;}
+    &.row {flex-direction: row;}
+
+    & > *:not(.flex) {margin: 10px}
+    &.grow-contents > * {flex: 1}
+}
+
+.max-75 {max-width: 75vw;}
+.min-75 {min-width: 75vw;}
+
+.left-align {text-align: left;}
+.centre-align {text-align: center;}
+.right-align {text-align: right;}
+
+i.sad {color: var(--grey-lightest)}
+
+footer a {
+    margin-bottom: 0 !important;
+}
+
+section {margin-top: 8vh}
+
+.container {
+    background-color: var(--grey-med-light);
+    border-radius: 10px;
+    padding: 5px 15px;
+}
+
+#title {
+    margin-top: 10vh;
+    min-height: 12vh;
+    font-size: 4rem;
+    text-shadow: white 0 0 15px;
+}
