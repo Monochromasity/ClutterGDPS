@@ -206,11 +206,8 @@ verified by <b>${inputlevel["verifier"]}</b>`
 async function printlist() {
   const list = await fetchlist();
   const htmllist = document.getElementById("list");
-  allids = [];
-  for (i = 0; i < list.length; i++) {
-    allids.push(list[i]["id"]);
-  }
-  itemparam = parseInt(window.location.search.substring(1));
+  const allids = list.map((el) => el.id);
+  const itemparam = parseInt(window.location.search.substring(1));
   for (i = 0; i < list.length; i++) {
   
     // Level div

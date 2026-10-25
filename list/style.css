@@ -167,15 +167,15 @@ li::marker {
 .desc {
   padding: 10px;
 }
-.info {
+.info, .info2 {
   text-align: center;
   display: grid;
+}
+.info {
   grid: auto-flow / 1fr 1fr 1fr;
   padding: 0px 10%;
 }
 .info2 {
-  text-align: center;
-  display: grid;
   grid: auto-flow / 1fr 1fr;
   padding: 0px 20%;
 }
@@ -203,11 +203,8 @@ li::marker {
 }
 
 /* stuff for narrower screens */
-@media (width <= 1600px) {
-  .info {
-    grid: auto-flow / 1fr;
-  }
-  .info2 {
+@media (width <= 1560px) {
+  .info, .info2 {
     grid: auto-flow / 1fr;
   }
 }
