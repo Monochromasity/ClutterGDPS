@@ -79,7 +79,7 @@ verified by <b>${inputlevel["verifier"]}</b>`
   listpertitle.textContent = "LIST%";
   const listpertxt = document.createElement("p");
   listpertxt.innerHTML += inputlevel["listperc"] ?? `<i class="sad">No list% has been provided...</i>`;
-  if (inputlevel["listperc"] != null) {
+  if (inputlevel["listperc"] !== null) {
     listpertxt.innerHTML += "%"
   }
   listperdiv.appendChild(listpertitle);
@@ -103,7 +103,7 @@ verified by <b>${inputlevel["verifier"]}</b>`
 
   // Video iframe
   // <iframe width="560" height="315" src="https://www.youtube.com/embed/MM7zFyFqD8A?si=JmUGHUIf9_PccYe0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  if (inputlevel["video"] != undefined) {
+  if (inputlevel["video"] !== undefined) {
     const video = document.createElement("iframe");
     //video.width = "560";
     //video.height = "315";
@@ -123,7 +123,7 @@ verified by <b>${inputlevel["verifier"]}</b>`
   recsdiv.className = "list";
   recsdiv.id = "records-list"
   const recsheader = document.createElement("h2")
-  recsheader.innerHTML = "<u>Records</u>"
+  recsheader.innerHTML = `<u>Records </u><a class="inline-link" href="/list/submit-record" target="_blank" id="record-submit-link">(Submit a Record)</a>`
   recsheader.style.textAlign = "center"
   recsheader.style.marginBottom = "5px"
   recsparent.appendChild(recsheader)
@@ -208,26 +208,26 @@ async function printlist() {
   const htmllist = document.getElementById("list");
   const allids = list.map((el) => el.id);
   const itemparam = parseInt(window.location.search.substring(1));
-  for (i = 0; i < list.length; i++) {
+  for (let i = 0; i < list.length; i++) {
   
     // Level div
     const item = document.createElement("div");
-    if (window.location.search != "" && window.location.search != "?") {
-      if (list[i]["id"] == itemparam) {
+    if (window.location.search !== "" && window.location.search !== "?") {
+      if (list[i]["id"] === itemparam) {
         item.className = "item selected";
       } else if (allids.includes(itemparam)) {
         item.className = "item";
-      } else if (i == 0) {
+      } else if (i === 0) {
         window.location.search = "?" + list[0]["id"].toString();
         item.className = "item selected";
       }
 
-    } else if (i == 0) {
+    } else if (i === 0) {
       window.location.search = "?" + list[0]["id"].toString();
       item.className = "item selected";
     }
     item.onclick = async function() {
-      if (this.className != "item selected") {
+      if (this.className !== "item selected") {
         document.getElementById(window.location.search.substring(1)).className = "item";
         this.className = "item selected";
         window.location.search = "?" + this.id;
@@ -250,7 +250,7 @@ async function printlist() {
     htmllist.appendChild(item);
 
     // If this level is selected
-    if (item.className == "item selected") {
+    if (item.className === "item selected") {
       await leveldetails(list[i], list);
     }
   }

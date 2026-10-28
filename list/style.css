@@ -31,9 +31,8 @@ a.inline-link {
     display: inline-block;
     font-size: 0.8rem;
   }  
-  .record > &::after {
-    font-size: 17px;
-  }
+  .record > &::after {font-size: 17px;}
+  &:is(#record-submit-link)::after {font-size: 1.4rem}
 }
 .header {
   border-bottom: 2px solid #424242;
@@ -55,7 +54,7 @@ a.inline-link {
   flex: 25%;
   background-color: #222222;
   border-radius: 8px;
-  padding: 10px;
+  padding: 0 10px 10px 10px;
   margin-right: 10px;
   overflow: auto scroll;
   height: 77vh;
@@ -100,7 +99,7 @@ li::marker {
   font-size: 26px;
   background-color: #292929;
   border-radius: 8px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   padding: 10px;
   transition-duration: 0.4s;
 
