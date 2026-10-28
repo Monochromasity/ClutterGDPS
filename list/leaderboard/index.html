@@ -15,6 +15,7 @@
   <title>ClutterGDPS Demonlist Leaderboard</title>
   <link rel="stylesheet" href="/list/style.css" type="text/css">
   <link rel="icon" href="/favicon.png" type="image/png">
+  <script src="/list/leaderboard/leaderboard.js" type="module" defer></script>
 </head>
 <html>
   <body>
@@ -25,8 +26,10 @@
       <a href="/list/rules" class="hlink">Rules</a>
     </div>
     <div class="main">
-      <div id="list">List</div>
-      <div id="level">Player Stats</div>
+      <div id="list">
+        <input id="search" placeholder="Search for a user...">
+      </div>
+      <div id="level"></div>
     </div>
   </body>
 </html>

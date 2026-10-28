@@ -1,12 +1,5 @@
-async function fetchlist() {
-  try {
-    const response = await fetch("/list/list.json")
-    const list = await response.json();
-    return list;
-  } catch (error) {
-    console.error(error);
-  }
-}
+import { calcMaxListPoints, fetchlist } from "./lib.js";
+
 async function leveldetails(inputlevel, fulllist) {
   // Get level div
   const leveldiv = document.getElementById("level");
@@ -89,7 +82,7 @@ verified by <b>${inputlevel["verifier"]}</b>`
   const pointstitle = document.createElement("h2");
   pointstitle.textContent = "POINTS";
   const pointstxt = document.createElement("p");
-  pointstxt.textContent = Math.round((Math.pow((((-7*Math.sqrt(499))/(fulllist.length-1))*((fulllist.indexOf(inputlevel)+1)-fulllist.length))/7, 2) + 1)*100)/100;
+  pointstxt.textContent = calcMaxListPoints(fulllist.indexOf(inputlevel), fulllist.length)
   pointsdiv.appendChild(pointstitle);
   pointsdiv.appendChild(pointstxt);
 
