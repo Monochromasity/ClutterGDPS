@@ -53,9 +53,9 @@ verified by <b>${inputlevel["verifier"]}</b>`
 
   const lengthdiv = document.createElement("div");
   const lentitle = document.createElement("h2");
-  lentitle.textContent = "LENGTH";
+  lentitle.textContent = "LENGTH (s)";
   const lentxt = document.createElement("p");
-  lentxt.innerHTML += inputlevel["length"] ?? `<i class="sad">No length has been provided...</i>`;
+  lentxt.innerHTML += inputlevel["length"] ?? `<i class="sad">No length has been provided...</i>`
   lengthdiv.appendChild(lentitle);
   lengthdiv.appendChild(lentxt);
 
@@ -71,7 +71,7 @@ verified by <b>${inputlevel["verifier"]}</b>`
   const listpertitle = document.createElement("h2");
   listpertitle.textContent = "LIST%";
   const listpertxt = document.createElement("p");
-  listpertxt.innerHTML += inputlevel["listperc"] ?? `<i class="sad">No list% has been provided...</i>`;
+  listpertxt.innerHTML += inputlevel["listperc"] ?? `<i class="sad">No list% has been provided...</i>`
   if (inputlevel["listperc"] !== null) {
     listpertxt.innerHTML += "%"
   }

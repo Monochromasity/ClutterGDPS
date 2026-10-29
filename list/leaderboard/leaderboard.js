@@ -184,7 +184,7 @@ async function playerDetails(playerData, player = decodeURI(window.location.sear
     recordsDiv.className = "dataitem"
     recordsDiv.style.flex = "3"
     recordsDiv.style.height = "19vh"
-    recordsDiv.style.overflowY = "auto"
+    recordsDiv.style.overflow = "hidden auto"
     recordsDiv.innerHTML = `<p><b>RECORDS</b></p>`
     for (let record of playerData.records) {
         const recordElem = document.createElement("div")

@@ -4,6 +4,7 @@ body {
   color: white;
   font-family: "Raleway", sans-serif;
   padding: 10px 40px;
+  scroll-behavior: smooth;
 }
 a.hlink {
   text-decoration: none;
@@ -30,6 +31,7 @@ a.inline-link {
     content: "\00a0\2197";
     display: inline-block;
     font-size: 0.8rem;
+    white-space: nowrap;
   }  
   .record > &::after {font-size: 17px;}
   &:is(#record-submit-link)::after {font-size: 1.4rem}
@@ -59,6 +61,7 @@ a.inline-link {
   overflow: auto scroll;
   height: 77vh;
   display: flex;
+  scroll-behavior: smooth;
   flex-direction: column;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
@@ -111,6 +114,7 @@ li::marker {
 #records-list {
   height: 19vh;
   overflow-y: auto;
+  scroll-behavior: smooth;
   & > .item {
     font-size: 20px;
   }
@@ -188,7 +192,7 @@ li::marker {
   font-size: 20px;
   justify-content: center;
   align-items: center;
-  width: 560px;
+  width: 40vw;
   height: 315px;
 }
 .dataitem {
@@ -212,21 +216,29 @@ li::marker {
 }
 
 /* stuff for mobile */
-@media (width <= 1100px) {
-  .lowerdiv {
+@media (width <= 900px) {
+  .video {width: 95%;}
+  .datadiv, .main, .lowerdiv, .header {
     flex-direction: column;
   }
-  .video {
-    width: 95%;
-  }
-  .datadiv {
-    flex-direction: column;
+  body {overflow-x: hidden;}
+  #list {margin: 0 0 10px 0;}
+  .logo {white-space: nowrap}
+  a.hlink {
+    margin: 5px 10px;
+    &:hover {margin: 1px 6px;}
   }
 }
 
 /* stuff for narrower screens */
 @media (width <= 1560px) {
   .info, .info2 {
-    grid: auto-flow / 1fr;
+    grid: auto-flow / 1fr; 
   }
+}
+
+/* keyframes for name effects */
+@keyframes sliding-gradient {
+  from {background-position: 0 50%;}
+  to {background-position: 110% 50%;}
 }
