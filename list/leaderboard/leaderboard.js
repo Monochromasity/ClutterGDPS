@@ -103,6 +103,7 @@ async function playerDetails(playerData, player = decodeURI(window.location.sear
         case "solid-colour-with-shadow":
             /*
                 "data": {
+                    "fillCol": <fill colour>,
                     "shadowCol": <shadow colour>,
                     "blurAmount": <blur radius>,
                     "distanceX": <shadow x offset>,
@@ -111,13 +112,13 @@ async function playerDetails(playerData, player = decodeURI(window.location.sear
             */
            playerName.style.color = playerInfo.stylePreset.data.fillCol ?? "#000"
            playerName.style.textShadow = 
-`${playerInfo.stylePreset.data.shadowCol ?? "#fff"} ${playerInfo.stylePreset.data.distanceX ?? 0} ${playerInfo.stylePreset.data.distanceY ?? 0} ${playerInfo.stylePreset.data.blurAmount?? "10px"}`
+`${playerInfo.stylePreset.data.shadowCol ?? "#fff"} ${playerInfo.stylePreset.data.distanceX ?? 0} ${playerInfo.stylePreset.data.distanceY ?? 0} ${playerInfo.stylePreset.data.blurAmount ?? "10px"}`
            break
         default: case undefined: break
     }
 
     if (playerInfo.nameStyles)
-        playerName.style.cssText = playerInfo.nameStyles.join(";")
+        playerName.style.cssText += playerInfo.nameStyles.join(";")
     
     playerName.textContent = "#" + playerData.ranking + " | " + player
     playerName.style.display = "inline-block"

@@ -91,5 +91,7 @@ section {margin-top: 8vh}
     margin-top: 10vh;
     min-height: 12vh;
     font-size: 4rem;
-    text-shadow: white 0 0 15px;
+    text-shadow: lightblue 0 0 15px;
 }
+
+li::marker {font-weight: bold;}
