@@ -76,6 +76,7 @@ async function playerDetails(playerData, player = decodeURI(window.location.sear
             */
             playerName.style.color = playerInfo.stylePreset.data
             break
+        case "moving-gradient":
         case "simple-gradient":
             /*
                 "data": {
@@ -87,6 +88,13 @@ async function playerDetails(playerData, player = decodeURI(window.location.sear
             playerName.style.backgroundClip = "text"
             playerName.style.backgroundImage = 
 `linear-gradient(${playerInfo.stylePreset.data.dir ?? 0}, ${playerInfo.stylePreset.data.cols?.join(",") ?? "red, orange"})`
+
+            if (playerInfo.stylePreset.name !== "simple-gradient") {
+                const colCount = playerInfo.stylePreset.data.cols.length ?? 2
+                playerName.style.animation = "sliding-gradient " +
+                    Math.floor(colCount / 2) + "s linear infinite"
+                playerName.style.backgroundSize = colCount * 200 + "% 100%"
+            }
             break
         case "solid-colour-with-outline":
             /*
