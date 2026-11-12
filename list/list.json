@@ -24,7 +24,8 @@
     "description": "Ship and memory based level using Time Machine as its song. Named like that to annoy Jyxa.",
     "records": {
       "0x0": [100, null, "verifier"],
-      "toast x3": [100, ["bluestacks", "nMkw12Jc8tMCt75oK"], "medal"]
+      "toast x3": [100, ["bluestacks", "nMkw12Jc8tMCt75oK"], "medal"],
+      "gw fri": [100, "8aMI-g7FUZo", "yt"]
     },
     "length": 42,
     "diff": "Hard Demon",
@@ -40,7 +41,8 @@
     "description": "The 11th main level in Geometry Dash, and the hardest in update 1.4.",
     "records": {
       "toast x3": [100, "https://www.dropbox.com/scl/fi/svz8goo6idh59r3ph88go/Recording-2026-10-22-180058.mp4?rlkey=bre08uj7m3huwq19lg2qywgau&st=bs5o0m08&dl=0", "url"],
-      "0x0": [100, "ybvuw4.mp4", "catbox"]
+      "0x0": [100, "ybvuw4.mp4", "catbox"],
+      "gw fri": [100, "60D7k19Soqc", "yt"]
     },
     "length": null,
     "diff": "Insane",
