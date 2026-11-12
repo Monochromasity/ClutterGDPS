@@ -25,5 +25,14 @@
             "font-family: monospace"
         ],
         "favouriteLevel": 121
+    },
+    "gw fri": {
+         "stylePreset": {
+              "name": "simple-gradient",
+              "data": {
+                  "cols": ["blue"," yellow"],
+                  "dir":"90deg"
+              }
+         }
     }
 }
