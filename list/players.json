@@ -27,12 +27,13 @@
         "favouriteLevel": 121
     },
     "gw fri": {
-         "stylePreset": {
-              "name": "simple-gradient",
-              "data": {
-                  "cols": ["blue"," yellow"],
-                  "dir":"90deg"
-              }
-         }
+        "description": "numero 5. french fries",
+        "stylePreset": {
+            "name": "simple-gradient",
+            "data": {
+                "cols": ["blue", "yellow"],
+                "dir": "90deg"
+            }
+        }
     }
 }

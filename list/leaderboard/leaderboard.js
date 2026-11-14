@@ -181,7 +181,7 @@ async function playerDetails(playerData, player = decodeURI(window.location.sear
 <p>
     <b>USER DESCRIPTION</b><br><br>
     <span ${hasDescription ? '' : ' class="sad"'}>
-        ${playerInfo.description.replaceAll("<a", '<a class="inline-link" target="_blank"') ?? "No description has been set yet..."}
+        ${playerInfo.description?.replaceAll("<a", '<a class="inline-link" target="_blank"') ?? "No description has been set yet..."}
     </span>
 </p>`
     playerDiv.appendChild(descriptionDiv)
