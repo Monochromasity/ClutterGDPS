@@ -15,6 +15,22 @@
     "listperc": 57
   },
   {
+    "level": "Cyathodium",
+    "id": 134,
+    "creators": "0x0",
+    "publisher": "0x0",
+    "verifier": "0x0",
+    "video": "RljqSzhe53Y",
+    "description": "Timing-based level using Clutterfunk. Short and sweet.",
+    "records": {
+      "0x0": [100, null, "verifier"],
+      "toast x3": [100, "https://c.uwu.me/l8OKqS.mp4", "url"]
+    },
+    "length": 35,
+    "diff": "Harder Demon",
+    "listperc": null
+  },
+  {
     "level": "nya UwU x3",
     "id": 121,
     "creators": "0x0",
